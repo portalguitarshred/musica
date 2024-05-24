@@ -107,7 +107,6 @@ main {
 
 h1, h2 {
     margin: 0.5em 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ffffff;
     text-align: left;
 }
@@ -558,5 +557,4 @@ li.playing .spectrum div:nth-child(5) {
 .accordion-active + .song-info {
     display: block;
 }
-
 
