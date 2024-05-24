@@ -7,6 +7,17 @@ body {
     margin: 0;
 }
 
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 1em;
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
 /* Estilos para o cabeçalho */
 header {
     display: flex;
