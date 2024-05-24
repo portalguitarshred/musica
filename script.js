@@ -243,102 +243,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Lógica do Registro de Usuário
-const registerLink = document.getElementById('register-link');
-const registerModal = document.getElementById('registerModal');
-const closeRegisterModal = document.getElementById('closeRegisterModal');
-const registerButton = document.getElementById('registerButton');
+    const registerLink = document.getElementById('register-link');
+    const registerModal = document.getElementById('registerModal');
+    const closeRegisterModal = document.getElementById('closeRegisterModal');
+    const registerButton = document.getElementById('registerButton');
 
-registerLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    registerModal.style.display = 'block';
-});
+    registerLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerModal.style.display = 'block';
+    });
 
-closeRegisterModal.addEventListener('click', () => {
-    registerModal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === registerModal) {
+    closeRegisterModal.addEventListener('click', () => {
         registerModal.style.display = 'none';
-    }
-});
+    });
 
-registerButton.addEventListener('click', async () => {
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    if (username && email && password) {
-        const response = await fetch('http://musica.guitarshred.com.br/register.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({
-                username: username,
-                email: email,
-                password: password
-            })
-        });
-
-        const data = await response.text();
-        alert(data);
-
-        if (response.ok) {
+    window.addEventListener('click', (event) => {
+        if (event.target === registerModal) {
             registerModal.style.display = 'none';
-        } else {
-            alert('Erro ao registrar usuário. Tente novamente.');
         }
-    } else {
-        alert('Por favor, preencha todos os campos.');
-    }
-});
+    });
 
-// Lógica do Equalizador
-const equalizerIcon = document.querySelector('.equalizer-icon');
-const equalizerModal = document.getElementById('equalizerModal');
-const closeEqualizerModal = document.getElementById('closeEqualizerModal');
+    registerButton.addEventListener('click', async () => {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-equalizerIcon.addEventListener('click', () => {
-    equalizerModal.style.display = 'block';
-});
+        if (username && email && password) {
+            const response = await fetch('http://musica.guitarshred.com.br/register.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
 
-closeEqualizerModal.addEventListener('click', () => {
-    equalizerModal.style.display = 'none';
-});
+            const data = await response.text();
+            alert(data);
 
-window.addEventListener('click', (event) => {
-    if (event.target === equalizerModal) {
+            if (response.ok) {
+                registerModal.style.display = 'none';
+            } else {
+                alert('Erro ao registrar usuário. Tente novamente.');
+            }
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    });
+
+    // Lógica do Equalizador
+    const equalizerIcon = document.querySelector('.equalizer-icon');
+    const equalizerModal = document.getElementById('equalizerModal');
+    const closeEqualizerModal = document.getElementById('closeEqualizerModal');
+
+    equalizerIcon.addEventListener('click', () => {
+        equalizerModal.style.display = 'block';
+    });
+
+    closeEqualizerModal.addEventListener('click', () => {
         equalizerModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === equalizerModal) {
+            equalizerModal.style.display = 'none';
+        }
+    });
+
+    const bassControl = document.getElementById('bass');
+    const midControl = document.getElementById('mid');
+    const trebleControl = document.getElementById('treble');
+
+    bassControl.addEventListener('input', (e) => {
+        adjustEqualizer('bass', e.target.value);
+    });
+
+    midControl.addEventListener('input', (e) => {
+        adjustEqualizer('mid', e.target.value);
+    });
+
+    trebleControl.addEventListener('input', (e) => {
+        adjustEqualizer('treble', e.target.value);
+    });
+
+    document.getElementById('resetEqualizer').addEventListener('click', () => {
+        bassControl.value = 0;
+        midControl.value = 0;
+        trebleControl.value = 0;
+        adjustEqualizer('bass', 0);
+        adjustEqualizer('mid', 0);
+        adjustEqualizer('treble', 0);
+    });
+
+    function adjustEqualizer(type, value) {
+        console.log(`${type} set to ${value}`);
+        // Implementar lógica para ajustar o equalizador
     }
 });
-
-const bassControl = document.getElementById('bass');
-const midControl = document.getElementById('mid');
-const trebleControl = document.getElementById('treble');
-
-bassControl.addEventListener('input', (e) => {
-    adjustEqualizer('bass', e.target.value);
-});
-
-midControl.addEventListener('input', (e) => {
-    adjustEqualizer('mid', e.target.value);
-});
-
-trebleControl.addEventListener('input', (e) => {
-    adjustEqualizer('treble', e.target.value);
-});
-
-document.getElementById('resetEqualizer').addEventListener('click', () => {
-    bassControl.value = 0;
-    midControl.value = 0;
-    trebleControl.value = 0;
-    adjustEqualizer('bass', 0);
-    adjustEqualizer('mid', 0);
-    adjustEqualizer('treble', 0);
-});
-
-function adjustEqualizer(type, value) {
-    console.log(`${type} set to ${value}`);
-    // Implementar lógica para ajustar o equalizador
-}
