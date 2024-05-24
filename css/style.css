@@ -1,50 +1,12 @@
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #1f1f1f;
-    color: #ffffff;
-    padding: 1em;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    position: relative;
+/* Estilos para o corpo */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
-.equalizer-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-    margin-bottom: -20px;
-}
-
-.equalizer-text {
-    font-size: 1.2em;
-    color: #ffffff;
-    margin-right: 5px;
-}
-
-.header-text {
-    font-size: 1.5em;
-    color: #ffffff;
-    margin: 0.5em 0;
-    text-align: center;
-}
-
-.equalizer-icon {
-    cursor: pointer;
-    font-size: 1.2em;
-    color: #ffffff;
-    transition: color 0.3s ease;
-    margin-right: 20px;
-}
-
-.equalizer-icon:hover {
-    color: #d3d3d3;
-}
-
+/* Estilos básicos para o modal */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -52,31 +14,66 @@ header {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
 }
 
-
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
+    background-color: #1f1f1f;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-width: 400px;
+    color: #ffffff;
+    border-radius: 10px;
 }
 
-.close {
-    color: #aaa;
+.close, .close-register {
+    color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
+.close:hover, .close:focus, .close-register:hover, .close-register:focus {
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
+}
+
+.timer-button {
+    background-color: #05d26d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.timer-button:hover {
+    background-color: #04b65c;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.share-options button {
+    background-color: #05d26d;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.share-options button:hover {
+    background-color: #04b65c;
 }
 
 .equalizer-control {
@@ -105,7 +102,7 @@ header {
     background-color: #04b65c;
 }
 
-.cover-image {
+..cover-image {
     width: 220px;
     height: 210px;
     border-radius: 8px;
@@ -314,13 +311,6 @@ li.playing::before {
     }
 }
 
-li.playing .spectrum {
-    display: flex;
-    gap: 2px;
-    position: absolute;
-    right: 10px;
-}
-
 .song-info {
     display: none;
     padding: 10px;
@@ -339,6 +329,7 @@ li.playing .spectrum {
     display: block;
 }
 
+/* Estilos para o modal de registro */
 .modal-register {
     display: none;
     position: fixed;
@@ -348,7 +339,6 @@ li.playing .spectrum {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
@@ -363,20 +353,6 @@ li.playing .spectrum {
     color: #ffffff;
     border-radius: 10px;
     text-align: left;
-}
-
-.close-register {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-register:hover,
-.close-register:focus {
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .register-button, .login-button {
@@ -410,6 +386,7 @@ li.playing .spectrum {
     color: #ffffff;
 }
 
+/* Estilos para o carrossel */
 .carousel-container {
     display: flex;
     align-items: center;
@@ -454,16 +431,286 @@ li.playing .spectrum {
     background-color: #04b65c;
 }
 
-.timer-button {
-    display: block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+#audio-player {
+    width: calc(100% - 40px);
+    margin: 0px 20px;
+    box-sizing: border-box;
+}
+
+#stations {
+    margin-bottom: 20px;
+    width: calc(100%);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#audio-visualizer {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+}
+
+#volume-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+}
+
+#volume-control {
+    width: 100%;
+    margin-left: 10px;
+    background-color: #333;
     border: none;
+    border-radius: 5px;
+    height: 8px;
+    appearance: none;
     cursor: pointer;
 }
 
-.timer-button:hover {
-    background-color: #45a049;
+#volume-control::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    background: #05d26d;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
 }
+
+#volume-control::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #05d26d;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Adicionando o espectro de áudio falso */
+li.playing .spectrum {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+    right: 10px;
+}
+
+li.playing .spectrum div {
+    width: 2px;
+    background: #ffffff;
+    animation: bar-animation 0.5s infinite;
+    animation-timing-function: linear;
+}
+
+li.playing .spectrum div:nth-child(1) {
+    height: 10px;
+    animation-delay: 0s;
+}
+
+li.playing .spectrum div:nth-child(2) {
+    height: 14px;
+    animation-delay: 0.1s;
+}
+
+li.playing .spectrum div:nth-child(3) {
+    height: 8px;
+    animation-delay: 0.2s;
+}
+
+li.playing .spectrum div:nth-child(4) {
+    height: 16px;
+    animation-delay: 0.3s;
+}
+
+li.playing .spectrum div:nth-child(5) {
+    height: 12px;
+    animation-delay: 0.4s;
+}
+
+@keyframes bar-animation {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.5);
+    }
+}
+
+.song-info {
+    display: none;
+    padding: 10px;
+    background-color: #2a2a2a;
+    border-top: 1px solid #444;
+    border-radius: 0 0 4px 4px;
+    box-sizing: border-box;
+    transition: max-height 0.3s ease-out;
+}
+
+.song-info p {
+    margin: 0;
+}
+
+.accordion-active + .song-info {
+    display: block;
+}
+
+/* Estilos para o modal de registro */
+.modal-register {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content-register {
+    background-color: #1f1f1f;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.register-button, .login-button {
+    background-color: #05d26d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.register-button:hover, .login-button:hover {
+    background-color: #04b65c;
+}
+
+.modal-content-register label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content-register input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+/* Estilos para o carrossel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: calc((100% - 10px) / 3);
+    margin: 0 5px;
+    border-radius: 8px;
+}
+
+.carousel-button {
+    background-color: #05d26d;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    font-size: 1em;
+}
+
+.carousel-button:hover {
+    background-color: #04b65c;
+}
+
+#audio-player {
+    width: calc(100% - 40px);
+    margin: 0px 20px;
+    box-sizing: border-box;
+}
+
+#stations {
+    margin-bottom: 20px;
+    width: calc(100%);
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#audio-visualizer {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+}
+
+#volume-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+}
+
+#volume-control {
+    width: 100%;
+    margin-left: 10px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    height: 8px;
+    appearance: none;
+    cursor: pointer;
+}
+
+#volume-control::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+    background: #05d26d;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+}
+
+#volume-control::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #05d26d;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
