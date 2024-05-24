@@ -58,14 +58,11 @@ header {
 
 
 .modal-content {
-    background-color: #1f1f1f;
-    margin: 5% auto;
+    background-color: #fefefe;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 400px;
-    color: #ffffff;
-    border-radius: 10px;
 }
 
 .close {
