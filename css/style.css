@@ -108,6 +108,7 @@ main {
     border-radius: 8px;
     box-sizing: border-box;
     text-align: center;
+    margin: 20px;
 }
 
 h1, h2 {
