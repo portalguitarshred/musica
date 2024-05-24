@@ -456,3 +456,17 @@ li.playing .spectrum {
 .carousel-button:hover {
     background-color: #04b65c;
 }
+
+.timer-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.timer-button:hover {
+    background-color: #45a049;
+}
