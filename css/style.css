@@ -11,6 +11,10 @@ header {
     position: relative;
 }
 
+body {
+    background-color: lightblue;
+}
+
 .equalizer-container {
     display: flex;
     align-items: center;
