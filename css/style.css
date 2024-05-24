@@ -1,21 +1,12 @@
 /* Estilos para o corpo */
 body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-}
-
-.container {
-    max-width: 800px;
-    width: 100%;
-    padding: 1em;
-    background-color: #1f1f1f;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    box-sizing: border-box;
-    text-align: center;
 }
 
 /* Estilos para o cabeçalho */
@@ -109,14 +100,14 @@ h3 {
 }
 
 main {
-    padding: 1em;
     max-width: 800px;
     width: 100%;
+    padding: 1em;
     background-color: #1f1f1f;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    margin-top: 20px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 h1, h2 {
