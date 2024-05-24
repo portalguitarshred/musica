@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const stationList = document.getElementById('station-list');
     if (!stationList) {
         console.error('Elemento station-list não encontrado');
+        return;
     }
 
     stations.forEach(station => {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!shareModal || !closeShareModal || !copyLinkButton || !shareFacebookButton || !shareTwitterButton) {
         console.error('Elementos do modal de compartilhamento não encontrados');
+        return;
     }
 
     closeShareModal.addEventListener('click', () => {
