@@ -1,124 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    setupLogin();
-    setupRegister();
-    setupStations();
-    setupVolumeControl();
-    setupTimer();
-    setupShare();
-    setupEqualizer();
-});
-
-// Função para configurar o login
-function setupLogin() {
-    const loginLink = document.getElementById('login-link');
-    const loginModal = document.getElementById('loginModal');
-    const closeLoginModal = document.getElementById('closeLoginModal');
-    const loginButton = document.getElementById('loginButton');
-
-    loginLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginModal.style.display = 'block';
-    });
-
-    closeLoginModal.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === loginModal) {
-            loginModal.style.display = 'none';
-        }
-    });
-
-    loginButton.addEventListener('click', async () => {
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-password').value;
-
-        if (email && password) {
-            const response = await fetch('http://musica.guitarshred.com.br/login.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    email: email,
-                    password: password
-                })
-            });
-
-            const data = await response.text();
-            alert(data);
-
-            if (response.ok) {
-                loginModal.style.display = 'none';
-                // Aqui você pode salvar o token JWT ou outra informação de autenticação
-            } else {
-                alert('Erro ao realizar login. Verifique suas credenciais.');
-            }
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-    });
-}
-
-// Função para configurar o registro
-function setupRegister() {
-    const registerLink = document.getElementById('register-link');
-    const registerModal = document.getElementById('registerModal');
-    const closeRegisterModal = document.getElementById('closeRegisterModal');
-    const registerButton = document.getElementById('registerButton');
-
-    registerLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        registerModal.style.display = 'block';
-    });
-
-    closeRegisterModal.addEventListener('click', () => {
-        registerModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === registerModal) {
-            registerModal.style.display = 'none';
-        }
-    });
-
-    registerButton.addEventListener('click', async () => {
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        if (username && email && password) {
-            const response = await fetch('http://musica.guitarshred.com.br/register.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    username: username,
-                    email: email,
-                    password: password
-                })
-            });
-
-            const data = await response.text();
-            alert(data);
-
-            if (response.ok) {
-                registerModal.style.display = 'none';
-            } else {
-                alert('Erro ao registrar usuário. Tente novamente.');
-            }
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
-    });
-}
-
-// Função para configurar as estações
-function setupStations() {
     const stationList = document.getElementById('station-list');
     const audioPlayer = document.getElementById('audio-player');
+    const volumeControl = document.getElementById('volume-control');
     const statusMessage = document.createElement('div'); // Elemento para mensagens de status
     statusMessage.id = 'status-message';
     document.body.appendChild(statusMessage); // Adiciona o elemento de status ao corpo do documento
@@ -201,21 +84,14 @@ function setupStations() {
 
         stationList.appendChild(li);
     });
-}
 
-// Função para configurar o controle de volume
-function setupVolumeControl() {
-    const audioPlayer = document.getElementById('audio-player');
-    const volumeControl = document.getElementById('volume-control');
-
+    // Controle de volume
     volumeControl.addEventListener('input', (e) => {
         audioPlayer.volume = e.target.value;
         console.log(`Volume: ${audioPlayer.volume}`);
     });
-}
 
-// Função para configurar o temporizador
-function setupTimer() {
+    // Lógica do Temporizador
     const clockIcon = document.getElementById('clock-icon');
     const timerModal = document.getElementById('timerModal');
     const closeModal = document.getElementById('closeModal');
@@ -245,7 +121,6 @@ function setupTimer() {
 
         const milliseconds = minutes * 60 * 1000;
         setTimeout(() => {
-            const audioPlayer = document.getElementById('audio-player');
             audioPlayer.pause();
             audioPlayer.currentTime = 0; // Reinicia o áudio
             alert('O temporizador desligou a rádio.');
@@ -254,10 +129,8 @@ function setupTimer() {
         timerModal.style.display = 'none';
         alert(`Temporizador definido para ${minutes} minutos.`);
     });
-}
 
-// Função para configurar o compartilhamento
-function setupShare() {
+    // Lógica do Compartilhamento
     const shareModal = document.getElementById('shareModal');
     const closeShareModal = document.getElementById('closeShareModal');
     const copyLinkButton = document.getElementById('copyLink');
@@ -297,57 +170,175 @@ function setupShare() {
         const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentShareUrl)}`;
         window.open(twitterUrl, '_blank');
     });
-}
 
-// Função para configurar o equalizador
-function setupEqualizer() {
-    const equalizerIcon = document.querySelector('.equalizer-icon');
-    const equalizerModal = document.getElementById('equalizerModal');
-    const closeEqualizerModal = document.getElementById('closeEqualizerModal');
-    const bassControl = document.getElementById('bass');
-    const midControl = document.getElementById('mid');
-    const trebleControl = document.getElementById('treble');
-    const resetEqualizerButton = document.getElementById('resetEqualizer');
+    // Lógica do Menu Sanduíche
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
 
-    equalizerIcon.addEventListener('click', () => {
-        equalizerModal.style.display = 'block';
-    });
-
-    closeEqualizerModal.addEventListener('click', () => {
-        equalizerModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === equalizerModal) {
-            equalizerModal.style.display = 'none';
+    menuToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'flex';
+        } else {
+            menu.style.display = 'none';
         }
     });
 
-    bassControl.addEventListener('input', (e) => {
-        adjustEqualizer('bass', e.target.value);
+    document.addEventListener('click', (event) => {
+        const isClickInside = menu.contains(event.target) || menuToggle.contains(event.target);
+        if (!isClickInside) {
+            menu.style.display = 'none';
+        }
     });
 
-    midControl.addEventListener('input', (e) => {
-        adjustEqualizer('mid', e.target.value);
+    // Lógica do Login de Usuário
+    const loginLink = document.getElementById('login-link');
+    const loginModal = document.getElementById('loginModal');
+    const closeLoginModal = document.getElementById('closeLoginModal');
+    const loginButton = document.getElementById('loginButton');
+
+    loginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.style.display = 'block';
     });
 
-    trebleControl.addEventListener('input', (e) => {
-        adjustEqualizer('treble', e.target.value);
+    closeLoginModal.addEventListener('click', () => {
+        loginModal.style.display = 'none';
     });
 
-    resetEqualizerButton.addEventListener('click', () => {
-        bassControl.value = 0;
-        midControl.value = 0;
-        trebleControl.value = 0;
-        adjustEqualizer('bass', 0);
-        adjustEqualizer('mid', 0);
-        adjustEqualizer('treble', 0);
+    window.addEventListener('click', (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        }
     });
-}
 
-// Função para ajustar o equalizador (a ser implementada)
+    loginButton.addEventListener('click', async () => {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+
+        if (email && password) {
+            const response = await fetch('http://musica.guitarshred.com.br/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await response.text();
+            alert(data);
+
+            if (response.ok) {
+                loginModal.style.display = 'none';
+                // Aqui você pode salvar o token JWT ou outra informação de autenticação
+            } else {
+                alert('Erro ao realizar login. Verifique suas credenciais.');
+            }
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    });
+
+    // Lógica do Registro de Usuário
+const registerLink = document.getElementById('register-link');
+const registerModal = document.getElementById('registerModal');
+const closeRegisterModal = document.getElementById('closeRegisterModal');
+const registerButton = document.getElementById('registerButton');
+
+registerLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    registerModal.style.display = 'block';
+});
+
+closeRegisterModal.addEventListener('click', () => {
+    registerModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === registerModal) {
+        registerModal.style.display = 'none';
+    }
+});
+
+registerButton.addEventListener('click', async () => {
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (username && email && password) {
+        const response = await fetch('http://musica.guitarshred.com.br/register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                username: username,
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.text();
+        alert(data);
+
+        if (response.ok) {
+            registerModal.style.display = 'none';
+        } else {
+            alert('Erro ao registrar usuário. Tente novamente.');
+        }
+    } else {
+        alert('Por favor, preencha todos os campos.');
+    }
+});
+
+// Lógica do Equalizador
+const equalizerIcon = document.querySelector('.equalizer-icon');
+const equalizerModal = document.getElementById('equalizerModal');
+const closeEqualizerModal = document.getElementById('closeEqualizerModal');
+
+equalizerIcon.addEventListener('click', () => {
+    equalizerModal.style.display = 'block';
+});
+
+closeEqualizerModal.addEventListener('click', () => {
+    equalizerModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target === equalizerModal) {
+        equalizerModal.style.display = 'none';
+    }
+});
+
+const bassControl = document.getElementById('bass');
+const midControl = document.getElementById('mid');
+const trebleControl = document.getElementById('treble');
+
+bassControl.addEventListener('input', (e) => {
+    adjustEqualizer('bass', e.target.value);
+});
+
+midControl.addEventListener('input', (e) => {
+    adjustEqualizer('mid', e.target.value);
+});
+
+trebleControl.addEventListener('input', (e) => {
+    adjustEqualizer('treble', e.target.value);
+});
+
+document.getElementById('resetEqualizer').addEventListener('click', () => {
+    bassControl.value = 0;
+    midControl.value = 0;
+    trebleControl.value = 0;
+    adjustEqualizer('bass', 0);
+    adjustEqualizer('mid', 0);
+    adjustEqualizer('treble', 0);
+});
+
 function adjustEqualizer(type, value) {
     console.log(`${type} set to ${value}`);
     // Implementar lógica para ajustar o equalizador
 }
-});
