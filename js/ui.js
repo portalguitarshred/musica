@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const stationList = document.getElementById('station-list');
+    if (!stationList) {
+        console.error('Elemento station-list não encontrado');
+    }
 
     stations.forEach(station => {
         const li = document.createElement('li');
@@ -33,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const shareFacebookButton = document.getElementById('shareFacebook');
     const shareTwitterButton = document.getElementById('shareTwitter');
     let currentShareUrl = '';
+
+    if (!shareModal || !closeShareModal || !copyLinkButton || !shareFacebookButton || !shareTwitterButton) {
+        console.error('Elementos do modal de compartilhamento não encontrados');
+    }
 
     closeShareModal.addEventListener('click', () => {
         shareModal.style.display = 'none';
