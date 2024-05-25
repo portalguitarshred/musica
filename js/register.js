@@ -8,6 +8,11 @@ export class Register {
     }
 
     init() {
+        if (!this.registerLink || !this.registerModal || !this.closeRegisterModal || !this.registerButton) {
+            console.error('Elementos do registro não encontrados');
+            return;
+        }
+
         this.registerLink.addEventListener('click', (e) => {
             e.preventDefault();
             this.registerModal.style.display = 'block';
