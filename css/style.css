@@ -1,4 +1,4 @@
-/* Exemplo de estilo básico */
+/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -20,12 +20,48 @@ header {
 }
 
 .menu {
-    display: flex;
-    align-items: center;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1000;
 }
 
 .menu a {
-    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
     text-decoration: none;
-    margin-left: 10px;
+    color: #000;
+    width: 100%;
 }
+
+.menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.menu i {
+    margin-right: 10px;
+}
+
+.menu-toggle {
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #d3d3d3;
+}
+
+/* Outros estilos específicos aqui */
