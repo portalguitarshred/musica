@@ -1,3 +1,4 @@
+// main.js
 import './ui.js';
 import './equalizer.js';
 import './player.js';
