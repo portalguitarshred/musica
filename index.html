@@ -15,14 +15,11 @@
         <nav class="menu">
             <a href="#" id="login-link"><i class="fas fa-sign-in-alt"></i> Login</a>
             <a href="#" id="register-link"><i class="fas fa-user"></i> Registro</a>
-            <a href="https://guitarshred.com.br" target="_blank"><i class="fas fa-newspaper"></i> Notícias</a>
-            <a href="https://guitarshredacademy.com.br" target="_blank"><i class="fas fa-guitar"></i> Cursos de Guitarra</a>
-            <a href="https://www.youtube.com/guitarshredofficial" target="_blank"><i class="fab fa-youtube"></i> Canal do YouTube</a>
-            <a href="https://www.instagram.com/portalguitarshred" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <!-- Links adicionais aqui -->
         </nav>
     </header>
     <main>
-        <img src="img/capa1.jpg" alt="Esta imagem ainda não foi carregada" class="cover-image">
+        <img src="img/capa1.jpg" alt="Capa" class="cover-image">
         <div class="descript">
             <h3>Nome da Música</h3>
             <i>Nome do artista</i>
@@ -30,7 +27,7 @@
         <section id="highlights">
             <div class="carousel">
                 <div class="carousel-track">
-                    <!-- Imagens das capas dos CDs serão adicionadas aqui -->
+                    <!-- Capas dos CDs -->
                 </div>
             </div>
         </section>
@@ -40,13 +37,11 @@
                 <i class="fas fa-sliders-h equalizer-icon"></i>
             </div>
             <ul id="station-list">
-                <!-- Stations will be dynamically added here -->
+                <!-- Estações -->
             </ul>
         </section>
         <section id="player">
-            <audio id="audio-player" controls>
-                Your browser does not support the audio element.
-            </audio>
+            <audio id="audio-player" controls>Your browser does not support the audio element.</audio>
             <div id="volume-container">
                 <label for="volume-control">Volume:</label>
                 <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
@@ -74,50 +69,7 @@
             </div>
         </div>
     </div>
-    <div id="timerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h3>Hora de dormir</h3>
-            <label for="timer">Desligar após (minutos):</label>
-            <input type="number" id="timer" min="1" max="120" value="30">
-            <button class="timer-button" id="setTimer">Definir o tempo</button>
-        </div>
-    </div>
-    <div id="shareModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeShareModal">&times;</span>
-            <h3>Compartilhar estação</h3>
-            <div class="share-options">
-                <button id="copyLink">Copiar link</button>
-                <button id="shareFacebook">Compartilhar no Facebook</button>
-                <button id="shareTwitter">Compartilhar no Twitter</button>
-            </div>
-        </div>
-    </div>
-    <div id="loginModal" class="modal-register">
-        <div class="modal-content-register">
-            <span class="close-register" id="closeLoginModal">&times;</span>
-            <h3>Faça seu login</h3>
-            <label for="login-email">Email:</label>
-            <input type="email" id="login-email" required>
-            <label for="login-password">Senha:</label>
-            <input type="password" id="login-password" required>
-            <button class="login-button" id="loginButton">Login</button>
-        </div>
-    </div>
-    <div id="registerModal" class="modal-register">
-        <div class="modal-content-register">
-            <span class="close-register" id="closeRegisterModal">&times;</span>
-            <h3>Registro de Usuário</h3>
-            <label for="username">Nome de Usuário:</label>
-            <input type="text" id="username" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" required>
-            <button class="register-button" id="registerButton">Registrar</button>
-        </div>
-    </div>
+    <!-- Outros modais aqui -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
