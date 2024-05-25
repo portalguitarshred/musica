@@ -7,6 +7,11 @@ export class Equalizer {
     }
 
     init() {
+        if (!this.bassControl || !this.midControl || !this.trebleControl) {
+            console.error('Elementos do equalizador não encontrados');
+            return;
+        }
+
         this.bassControl.addEventListener('input', (e) => this.adjustEqualizer('bass', e.target.value));
         this.midControl.addEventListener('input', (e) => this.adjustEqualizer('mid', e.target.value));
         this.trebleControl.addEventListener('input', (e) => this.adjustEqualizer('treble', e.target.value));
@@ -15,7 +20,6 @@ export class Equalizer {
 
     adjustEqualizer(type, value) {
         console.log(`${type} set to ${value}`);
-        // Implementar lógica para ajustar o equalizador
     }
 
     resetEqualizer() {
