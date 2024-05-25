@@ -94,6 +94,8 @@ header {
     width: 220px;
     height: 210px;
     border-radius: 8px;
+    border-top: 20px;
+    align: center;
 }
 
 .descript {
