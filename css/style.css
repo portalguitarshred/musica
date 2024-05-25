@@ -77,6 +77,147 @@ header {
     color: #d3d3d3;
 }
 
+/* Estilos da seção da capa */
+.cover-section {
+    background-color: #1f1f1f;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cover-image {
+    width: 220px;
+    height: 210px;
+    border-radius: 8px;
+}
+
+.descript {
+    width: auto;
+}
+
+h3 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: #05d26d;
+}
+
+/* Estilos da main */
+main {
+    padding: 1em;
+    max-width: 800px;
+    width: 100%;
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 4px rgba(0, Vamos ajustar o CSS para garantir que a área da capa esteja corretamente posicionada e estilizada:
+
+### Atualização Completa do CSS
+
+```css
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 150px;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #1f1f1f;
+    color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+}
+
+.menu a:hover {
+    background-color: #333;
+}
+
+.menu i {
+    margin-right: 10px;
+}
+
+.menu-toggle {
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: #d3d3d3;
+}
+
+.clock-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #ffffff;
+    padding: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.clock-icon:hover {
+    color: #d3d3d3;
+}
+
+/* Estilos da seção da capa */
+.cover-section {
+    background-color: #1f1f1f;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cover-image {
+    width: 220px;
+    height: 210px;
+    border-radius: 8px;
+}
+
+.descript {
+    width: auto;
+}
+
+h3 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: #05d26d;
+}
+
 /* Estilos da main */
 main {
     padding: 1em;
@@ -87,23 +228,6 @@ main {
     border-radius: 8px;
     margin: 20px auto;
     box-sizing: border-box;
-}
-
-.cover-image {
-    width: 220px;
-    height: 210px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.descript {
-    width: 220px;
-}
-
-h3 {
-    margin-bottom: 5px;
-    margin-top: 10px;
-    color: #05d26d;
 }
 
 .equalizer-container {
