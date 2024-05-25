@@ -10,6 +10,11 @@ export class Player {
     }
 
     init() {
+        if (!this.audioPlayer || !this.volumeControl) {
+            console.error('Elementos do player não encontrados');
+            return;
+        }
+
         this.volumeControl.addEventListener('input', (e) => this.adjustVolume(e.target.value));
     }
 
