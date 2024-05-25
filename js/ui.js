@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const register = new Register();
     const timer = new Timer();
 
+    // Inicialização da "Rock Station"
     const stations = [
         { name: 'Rock Station', url: 'https://stream.zeno.fm/qupiusi3w5puv', element: null }
     ];
@@ -29,49 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
         li.addEventListener('click', () => player.playStation(station));
         stationList.appendChild(li);
     });
-
-    // Lógica de compartilhamento
-const shareModal = document.getElementById('shareModal');
-const closeShareModal = document.getElementById('closeShareModal');
-const copyLinkButton = document.getElementById('copyLink');
-const shareFacebookButton = document.getElementById('shareFacebook');
-const shareTwitterButton = document.getElementById('shareTwitter');
-let currentShareUrl = '';
-
-if (!shareModal || !closeShareModal || !copyLinkButton || !shareFacebookButton || !shareTwitterButton) {
-    console.error('Elementos do modal de compartilhamento não encontrados');
-    return;
-}
-
-closeShareModal.addEventListener('click', () => {
-    shareModal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target === shareModal) {
-        shareModal.style.display = 'none';
-    }
-});
-
-function openShareModal(url) {
-    currentShareUrl = url;
-    shareModal.style.display = 'block';
-}
-
-copyLinkButton.addEventListener('click', () => {
-    navigator.clipboard.writeText(currentShareUrl).then(() => {
-        alert('Link copiado para a área de transferência.');
-    }).catch(err => {
-        console.error('Erro ao copiar o link: ', err);
-    });
-});
-
-shareFacebookButton.addEventListener('click', () => {
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentShareUrl)}`;
-    window.open(facebookUrl, '_blank');
-});
-
-shareTwitterButton.addEventListener('click', () => {
-    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentShareUrl)}`;
-    window.open(twitterUrl, '_blank');
 });
